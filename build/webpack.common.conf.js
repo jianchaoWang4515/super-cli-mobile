@@ -51,7 +51,6 @@ let commonWebpackConf = {
                     {
                         loader: 'css-loader', 
                         options: { importLoaders: 1 }
-
                     },
                     'postcss-loader'
                 ]
@@ -62,7 +61,9 @@ let commonWebpackConf = {
                   {
                     loader: 'url-loader',
                     options: {
-                      limit: 10000
+                        esModule: false,
+                        limit: 1024, // 小于此值会编译成base64 否则输出为路径
+                        name: process.env.NODE_ENV === 'development' ? '/src/assets/images/[name].[ext]' : '/assets/images/[name].[ext]'
                     }
                   }
                 ]

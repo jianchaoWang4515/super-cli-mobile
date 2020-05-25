@@ -3,6 +3,7 @@ const webpackMerge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const prodWebpackConf = webpackMerge(commonConfig, {
+    mode: 'production',
     devtool: 'cheap-module-source-map',
     optimization: {
         minimizer: [
